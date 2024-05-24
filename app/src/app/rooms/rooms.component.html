@@ -6,13 +6,36 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Welcome to {{name}}</h2><!--this is text interpolation binding uisng {{name}} like this-->
+    <h2>Welcome to {{name}}</h2><!--this is text interpolation binding uisng {{name}} thke this-->
     <div [innerText]="nrooms"></div> <!--this is property binding--> 
-    <button (click)="toggle()">Toggle</button> <!--this is event bindiding property where "click" is event-->
+    <button (click)="toggle()">Toggle</button> <!--this is event bindiding property where "cthck" is event-->
     <br>
     <div *ngIf="rooms.availableRooms < 0"> <!--ngif usage-->
-        Room List
+        Room list
     </div>
-    
+    <table >
+      <tr [ngClass]="'heading'">
+        <th>index</th>
+        <th>RoomNo</th>
+        <th>RoomType</th>
+        <th>amenities</th>
+        <th>price</th>
+        <th>photot</th>
+        <th>checkin</th>
+        <th>checkout</th>
+
+      </tr>
+      <tr [ngClass]="i%2==0?'even':'odd'" *ngFor="let room of roomList,let i='index'">
+        <td>{{i+1}}</td>
+        <td>{{room.roomNo}}</td>
+        <td>{{room.roomType}}</td>
+        <td>{{room.amenities}}</td>
+        <td>{{room.price}}</td>
+        <td>{{room.photo}}</td>
+        <td>{{room.checkInTime}}</td>
+        <td>{{room.checkOutTime}}</td>
+
+      </tr>
+    </table>
 </body>
 </html>

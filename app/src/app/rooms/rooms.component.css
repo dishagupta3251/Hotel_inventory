@@ -1,0 +1,13 @@
+.even{
+background-color: rgb(43, 62, 15);
+color: white;
+
+}
+.odd{
+    background-color: grey;
+    color: white;
+}
+.heading{
+    background-color: black;
+    color: aliceblue;
+}
