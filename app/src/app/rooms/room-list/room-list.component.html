@@ -1,0 +1,29 @@
+
+<div > <!--ngif usage-->
+    Room list
+</div>
+
+<table class="table" >
+  <tr [ngClass]="'heading'">
+    <th>index</th>
+    <th>RoomNo</th>
+    <th>RoomType</th>
+    <th>amenities</th>
+    <th>price</th>
+    <th>photot</th>
+    <th>checkin</th>
+    <th>checkout</th>
+
+  </tr>
+  <tr [ngClass]="i%2==0?'even':'odd'" *ngFor="let room of rooms,let i='index'">
+    <td>{{i+1}}</td>
+    <td>{{room.roomNo}}</td>
+    <td>{{room.roomType}}</td>
+    <td>{{room.amenities}}</td>
+    <td>{{room.price}}</td>
+    <td>{{room.photo}}</td>
+    <td>{{room.checkInTime |date }}</td>
+    <td>{{room.checkOutTime | date}}</td>
+
+  </tr>
+</table>

@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { Info, RoomList } from './rooms';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { DatePipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RoomListComponent } from "./room-list/room-list.component";
 
 @Component({
-  selector: 'app-rooms',
-  standalone: true,
-  imports: [NgClass, NgIf,NgFor],
-  templateUrl: './rooms.component.html',
-  styleUrl: './rooms.component.css'
+    selector: 'app-rooms',
+    standalone: true,
+    templateUrl: './rooms.component.html',
+    styleUrl: './rooms.component.css',
+    imports: [NgClass, NgIf, NgFor, DatePipe, NgbModule, RoomListComponent]
 })
 export class RoomsComponent {
 
@@ -29,7 +31,7 @@ export class RoomsComponent {
     bookedRooms: 5,
     totalRooms: 15
   }
-  roomList: RoomList[] = [{
+  List: RoomList[] = [{
     roomNo: 101,
     roomType: 'Deluxe Room',
     amenities: 'Air Conditioner, Free Wifi, TV, Bathroom, Kitchen',
