@@ -11,9 +11,15 @@
     <button (click)="toggle()">Toggle</button> <!--this is event bindiding property where "cthck" is event-->
     <br>
    <div>
-    <app-room-list [rooms]="List"></app-room-list>
+    <app-room-list [rooms]="List"
+    (roomSelected)="selectRoom($event)"></app-room-list>
    </div>
-
-  
+<br>
+<div *ngIf="room_display">
+     {{ room_display | json }}
+</div>
+  <div>
+    <button (click)="addRoom()">Add a room</button>
+  </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Info, RoomList } from './rooms';
-import { DatePipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { DatePipe, JsonPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RoomListComponent } from "./room-list/room-list.component";
 
@@ -9,9 +9,13 @@ import { RoomListComponent } from "./room-list/room-list.component";
     standalone: true,
     templateUrl: './rooms.component.html',
     styleUrl: './rooms.component.css',
-    imports: [NgClass, NgIf, NgFor, DatePipe, NgbModule, RoomListComponent]
+    imports: [NgClass, NgIf, NgFor, DatePipe, NgbModule,RoomListComponent, JsonPipe],
+   
 })
-export class RoomsComponent {
+export class RoomsComponent implements OnInit {
+ 
+
+  room_display!:RoomList
 
   name: string = "Skyhilton"
   nrooms: number = 10;
@@ -61,6 +65,28 @@ export class RoomsComponent {
   }
 
   ]
+  selectRoom(room:RoomList)
+  {
+      this.room_display=room;
+  }
+  ngOnInit(): void {}
+   count:number=0;
+  addRoom(){
+    const new_room:RoomList={
+      roomNo: 103,
+      roomType: 'Private Suite',
+      amenities: 'Air Conditioner, Free Wifi, TV, Bathroom, Kitchen',
+      price: 2000,
+      photo: 'https://unsplash.com/photos/black-and-white-bed-near-brown-wooden-table-T5pL6ciEn-I',
+      checkInTime: new Date('11-Nov-2024'),
+      checkOutTime: new Date('12-Nov-2024')
+
+      
+
+    };
+this.List=[...this.List,new_room] //changedetection works. It here detects a change is made to entire property a of component. Three dots tell already present data in (our case array of rooms from 101 to 103) property and then new property is added to it
+  }
+  
 
 }
 

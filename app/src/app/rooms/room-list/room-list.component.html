@@ -13,6 +13,7 @@
     <th>photot</th>
     <th>checkin</th>
     <th>checkout</th>
+    <th>Select</th>
 
   </tr>
   <tr [ngClass]="i%2==0?'even':'odd'" *ngFor="let room of rooms,let i='index'">
@@ -24,6 +25,10 @@
     <td>{{room.photo}}</td>
     <td>{{room.checkInTime |date }}</td>
     <td>{{room.checkOutTime | date}}</td>
+    <td><button  class="btn btn-primary" (click)="selectedRoom(room)">
+      Select
+    </button></td>
+    
 
   </tr>
 </table>

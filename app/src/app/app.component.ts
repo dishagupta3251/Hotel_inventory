@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,  } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { RoomsComponent } from './rooms/rooms.component';
+import { RoomListComponent } from './rooms/room-list/room-list.component';
+
 
 
 @Component({
