@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output,ChangeDetectorRef } from '@angular/core';
 import { DatePipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RoomList } from '../rooms';
@@ -8,7 +8,9 @@ import { RoomList } from '../rooms';
   standalone: true,
   imports: [NgClass, NgIf,NgFor,DatePipe,NgbModule],
   templateUrl: './room-list.component.html',
-  styleUrl: './room-list.component.css'
+  styleUrl: './room-list.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
+
   
 })
 export class RoomListComponent implements OnInit {
