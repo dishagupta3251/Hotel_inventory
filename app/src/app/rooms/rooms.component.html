@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Welcome to {{name}}</h2><!--this is text interpolation binding uisng {{name}} thke this-->
-    <div [innerText]="nrooms"></div> <!--this is property binding--> 
-    <button (click)="toggle()">Toggle</button> <!--this is event bindiding property where "cthck" is event-->
-    <br>
+
    <div>
+    <app-header [title]="'Title'"></app-header>
     <app-room-list [rooms]="List"
     (roomSelected)="selectRoom($event)"></app-room-list>
+    
+    <app-container>
+      <h1>
+        this is from ng content
+        </h1>
+    </app-container>
    </div>
 <br>
 <div *ngIf="room_display">
@@ -21,5 +17,3 @@
   <div>
     <button (click)="addRoom()">Add a room</button>
   </div>
-</body>
-</html>

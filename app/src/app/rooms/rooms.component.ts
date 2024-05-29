@@ -1,19 +1,24 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, ViewChild, viewChild } from '@angular/core';
 import { Info, RoomList } from './rooms';
 import { DatePipe, JsonPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RoomListComponent } from "./room-list/room-list.component";
+import { HeaderComponent } from "../header/header.component";
+import { ContainerComponent } from '../container/container.component';
 
 @Component({
     selector: 'app-rooms',
     standalone: true,
     templateUrl: './rooms.component.html',
     styleUrl: './rooms.component.css',
-    imports: [NgClass, NgIf, NgFor, DatePipe, NgbModule,RoomListComponent, JsonPipe],
-   
+    imports: [NgClass, NgIf, NgFor, DatePipe, NgbModule, RoomListComponent, JsonPipe, HeaderComponent, ContainerComponent]
 })
-export class RoomsComponent implements OnInit {
+export class RoomsComponent implements OnInit,AfterViewInit {
  
+  @ViewChild(HeaderComponent) headercomponent!:HeaderComponent;
+
+ 
+
 
   room_display!:RoomList
 
@@ -35,6 +40,17 @@ export class RoomsComponent implements OnInit {
     bookedRooms: 5,
     totalRooms: 15
   }
+
+ 
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.headercomponent.title='Room Details';
+  }
+
+  
+
   List: RoomList[] = [{
     roomNo: 101,
     roomType: 'Deluxe Room',
